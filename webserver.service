@@ -1,0 +1,12 @@
+[Unit]
+Description=Paltus Portal FastAPI
+
+[Service]
+WorkingDirectory=/var/www/backend
+ExecStart=uvicorn main:app --host 192.168.20.70 --port 443 --ssl-keyfile /var/www/backend/ssl/39/egisz.key --ssl-certfile /var/www/backend/ssl/39/egisz.pem
+Restart=always
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

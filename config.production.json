@@ -1,0 +1,105 @@
+{
+    "client": {
+      "issuer": "",
+      "base_url": "",
+      "port": 443,
+      "verify_ssl_server": false,
+      "debug": false,
+      "scope": "",
+      "send_parameters_via": "",
+      "client_id": "",
+      "client_secret": "",
+      "redirect_uri": "",
+      "api_endpoint":"",
+      "disable_https":false
+    },
+    "db": {
+        "db_147_portal": {
+            "host": "",
+            "port": "",
+            "database": "",
+            "user": "",
+            "password": ""
+        }
+    },
+    "debug": false,
+    "export_dir": "{__path__}/../_export",
+    "import_dir": "{__path__}/../_import",
+    "logs": {
+        "version": 1,
+        "loggers":{
+            "main":{
+                "handlers": ["fileHandler", "consoleHandler", "telegramInfo", "telegramErrors"],
+                "level": "DEBUG"
+            },
+            "file":{
+                "handlers": ["fileHandler", "consoleHandler"],
+                "level": "DEBUG"
+            }
+        },
+        "handlers": {
+            "fileHandler":{
+                "class":"logging.handlers.RotatingFileHandler",
+                "formatter":"fileFormatter",
+                "filename":"{__file__}.log",
+                "encoding": "utf-8",
+                "level":"DEBUG",
+                "maxBytes": 5242880,
+                "backupCount": 7
+            },
+            "consoleHandler":{
+                "class":"logging.StreamHandler",
+                "formatter":"consoleFormatter",
+                "level":"DEBUG"
+            },
+            "telegramErrors": {
+                "class": "telegram_handler.TelegramHandler",
+                "token": "",
+                "chat_id": 0,
+                "formatter":"telegramFormatter",
+                "level":"ERROR"
+            },
+            "telegramInfo": {
+                "class": "telegram_handler.TelegramHandler",
+                "token": "",
+                "chat_id": 0,
+                "formatter":"telegramFormatter",
+                "level":"INFO"
+            }
+
+        },
+        "formatters":{
+            "fileFormatter":{
+                "format":"%(asctime)s - %(levelname)s -> %(message)s",
+                "datefmt": "%d.%m.%Y %H:%M"
+            },
+            "consoleFormatter":{
+                "format":"%(asctime)s - %(levelname)s -> %(message)s",
+                "datefmt": "%d.%m.%Y %H:%M:%S"
+            },
+            "telegramFormatter": {
+                "class": "telegram_handler.HtmlFormatter",
+                "format": "%(icon)s %(asctime)s - <b>%(filename)s</b>:\n%(message)s",
+                "datefmt": "%d.%m.%Y %H:%M"
+            }
+        }
+    },
+    "server_type": "development",
+    "server_url": "",
+    "session_secret_key": "",
+    "session_cookie": "",
+    "telegram": {
+        "token": "",
+        "auth": {}
+    },
+    "users": [{
+        "login": "",
+        "password": ")"
+    },{
+        "login": "",
+        "password": ""
+    },{
+        "login": "",
+        "password": ""
+    }]
+}
